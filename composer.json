@@ -1,0 +1,22 @@
+{
+    "name": "marcosh/php-return-type-checker",
+    "description": "Cheks which methods are missing a return type hint",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Perone",
+            "email": "pasafama@gmail.com"
+        }
+    ],
+    "require": {
+        "roave/better-reflection": "^1.2",
+        "symfony/console": "^3.2",
+        "phpdocumentor/reflection-docblock": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Marcosh\\PhpReturnTypeChecker\\": "src/"
+        }
+    }
+}
