@@ -29,13 +29,8 @@ final class CheckReturnTypes extends Command
 
         $check = new Checker();
 
-        foreach ($check($path) as $method) {
-            $output->writeln(sprintf(
-                'Method %s of the class %s defined in %s does not have a return type.',
-                $method->getName(),
-                $method->getDeclaringClass()->getName(),
-                $method->getFileName()
-            ));
+        foreach ($check($path) as $typeHint) {
+            $output->writeln($typeHint->message());
         }
 
         $output->writeln('Done!');

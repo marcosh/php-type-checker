@@ -7,6 +7,7 @@ namespace Marcosh\PhpReturnTypeChecker;
 use BetterReflection\Reflection\ReflectionMethod;
 use BetterReflection\Reflector\ClassReflector;
 use BetterReflection\SourceLocator\Type\DirectoriesSourceLocator;
+use Marcosh\PhpReturnTypeChecker\TypeHint\ReturnTypeHint;
 use phpDocumentor\Reflection\DocBlock;
 
 final class Checker
@@ -24,9 +25,7 @@ final class Checker
             $methods = $class->getImmediateMethods();
 
             foreach ($methods as $method) {
-                if (!$method->isConstructor() && !$method->isDestructor() && null === $method->getReturnType()) {
-                    yield $method;
-                }
+                yield from ReturnTypeHint::method($method);
             }
         }
     }
