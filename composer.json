@@ -10,9 +10,8 @@
         }
     ],
     "require": {
-        "roave/better-reflection": "^1.2",
-        "symfony/console": "^3.2",
-        "phpdocumentor/reflection-docblock": "^2.0"
+        "roave/better-reflection": "dev-master",
+        "symfony/console": "^3.2"
     },
     "autoload": {
         "psr-4": {
