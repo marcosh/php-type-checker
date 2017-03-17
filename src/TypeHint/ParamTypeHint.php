@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpReturnTypeChecker\TypeHint;
 
-use BetterReflection\Reflection\ReflectionParameter;
+use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class ParamTypeHint implements TypeHint
 {

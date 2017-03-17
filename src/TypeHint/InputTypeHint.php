@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpReturnTypeChecker\TypeHint;
 
-use BetterReflection\Reflection\ReflectionMethod;
+use Roave\BetterReflection\Reflection\ReflectionMethod;
 
 final class InputTypeHint
 {

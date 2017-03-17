@@ -4,11 +4,11 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpReturnTypeChecker;
 
-use BetterReflection\Reflection\ReflectionMethod;
-use BetterReflection\Reflector\ClassReflector;
-use BetterReflection\SourceLocator\Type\DirectoriesSourceLocator;
 use Marcosh\PhpReturnTypeChecker\TypeHint\InputTypeHint;
 use Marcosh\PhpReturnTypeChecker\TypeHint\ReturnTypeHint;
+use Roave\BetterReflection\Reflection\ReflectionMethod;
+use Roave\BetterReflection\Reflector\ClassReflector;
+use Roave\BetterReflection\SourceLocator\Type\DirectoriesSourceLocator;
 
 final class Checker
 {
