@@ -7,8 +7,8 @@ namespace Marcosh\PhpReturnTypeChecker;
 use BetterReflection\Reflection\ReflectionMethod;
 use BetterReflection\Reflector\ClassReflector;
 use BetterReflection\SourceLocator\Type\DirectoriesSourceLocator;
+use Marcosh\PhpReturnTypeChecker\TypeHint\InputTypeHint;
 use Marcosh\PhpReturnTypeChecker\TypeHint\ReturnTypeHint;
-use phpDocumentor\Reflection\DocBlock;
 
 final class Checker
 {
@@ -26,6 +26,7 @@ final class Checker
 
             foreach ($methods as $method) {
                 yield from ReturnTypeHint::method($method);
+                yield from InputTypeHint::method($method);
             }
         }
     }
