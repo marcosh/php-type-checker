@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c1ef3c5bbd78130422b368e313f0dd5",
-    "content-hash": "6a492c015ccd6157810c5696729b12cb",
+    "hash": "a9e06c59118a480fe944f3c792ee8bc4",
+    "content-hash": "84f0491fb5129bc7f70526b418ec730d",
     "packages": [
         {
             "name": "jeremeamia/SuperClosure",
@@ -311,16 +311,16 @@
         },
         {
             "name": "roave/better-reflection",
-            "version": "dev-master",
+            "version": "dev-types-with-no-doc-block",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Roave/BetterReflection.git",
-                "reference": "c81bc2d6eff56b132758542818a8adab272755a6"
+                "url": "https://github.com/marcosh/BetterReflection.git",
+                "reference": "10ef1f697b3796b01916b9435e9d4a9e041778af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/BetterReflection/zipball/c81bc2d6eff56b132758542818a8adab272755a6",
-                "reference": "c81bc2d6eff56b132758542818a8adab272755a6",
+                "url": "https://api.github.com/repos/marcosh/BetterReflection/zipball/10ef1f697b3796b01916b9435e9d4a9e041778af",
+                "reference": "10ef1f697b3796b01916b9435e9d4a9e041778af",
                 "shasum": ""
             },
             "require": {
@@ -347,12 +347,19 @@
                     "namespace-bc-aliases.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Roave\\BetterReflectionTest\\": "test/unit"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "description": "Better Reflection - an improved code reflection API",
-            "time": "2017-02-16 21:19:27"
+            "support": {
+                "source": "https://github.com/marcosh/BetterReflection/tree/types-with-no-doc-block"
+            },
+            "time": "2017-03-17 11:39:24"
         },
         {
             "name": "symfony/console",
