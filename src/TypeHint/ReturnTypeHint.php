@@ -4,7 +4,11 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpReturnTypeChecker\TypeHint;
 
+use Marcosh\PhpReturnTypeChecker\Anomaly\MissingReturnType;
+use Marcosh\PhpReturnTypeChecker\Anomaly\MissingReturnTypeWithDocBlock;
+use Marcosh\PhpReturnTypeChecker\Anomaly\ReturnTypeDoesNotCoincideWithDocBlock;
 use phpDocumentor\Reflection\Type;
+use Roave\BetterReflection\Reflection\ReflectionFunction;
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 
 final class ReturnTypeHint
@@ -21,13 +25,43 @@ final class ReturnTypeHint
 
     public static function method(ReflectionMethod $method): \Iterator
     {
-        if (
-            !$method->isConstructor() &&
-            !$method->isDestructor() &&
-            null === $method->getReturnType()
-        ) {
-            yield new self($method);
+        if ($method->isConstructor() || $method->isDestructor()) {
+            return;
         }
+
+        yield from MissingReturnType::callable($method);
+        //yield from MissingReturnTypeWithDocBlock::callable($method);
+        //yield from ReturnTypeDoesNotCoincideWithDocBlock::callable($method);
+    }
+
+    public static function function(ReflectionFunction $function): \Iterator
+    {
+        yield from MissingReturnType::callable($function);
+        //yield from MissingReturnTypeWithDocBlock::callable($function);
+        //yield from ReturnTypeDoesNotCoincideWithDocBlock::callable($function);
+    }
+
+    /*private static function shouldNotify(ReflectionMethod $method): bool
+    {
+        return null === $method->getReturnType() ||
+            self::returnTypeDoesNotCoincideWithDocBlock($method);
+    }
+
+    private static function returnTypeDoesNotCoincideWithDocBlock(ReflectionMethod $method): bool
+    {
+        $condition = !empty($method->getDocBlockReturnTypes()) &&
+            !in_array($method->getReturnType()->getTypeObject(), $method->getDocBlockReturnTypes(), false);
+
+        if ($condition) {
+            var_dump(
+                $method->getReturnType()->getTypeObject(),
+                $method->getDocBlockReturnTypes(),
+                in_array($method->getReturnType()->getTypeObject(), $method->getDocBlockReturnTypes(), true),
+                in_array($method->getReturnType()->getTypeObject(), $method->getDocBlockReturnTypes(), false)
+            );
+        }
+
+        return $condition;
     }
 
     public function message(): string
@@ -54,5 +88,5 @@ final class ReturnTypeHint
             $this->method->getFileName(),
             $docBlockReturnTypes
         );
-    }
+    }*/
 }
