@@ -21,11 +21,13 @@ final class MissingFunctionReturnType
     public static function function(ReflectionFunction $function): \Iterator
     {
         try {
-            if (null === $function->getReturnType() && empty($function->getDocBlockReturnTypes())) {
-                yield new self($function);
-            }
+            $docBlockReturnTypes = $function->getDocBlockReturnTypes();
         } catch (\InvalidArgumentException $e) {
             // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
+        }
+
+        if (null === $function->getReturnType() && empty($docBlockReturnTypes)) {
+            yield new self($function);
         }
     }
 

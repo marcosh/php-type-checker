@@ -22,11 +22,13 @@ final class MissingMethodReturnType implements Anomaly
     public static function method(ReflectionMethod $method): \Iterator
     {
         try {
-            if (null === $method->getReturnType() && empty($method->getDocBlockReturnTypes())) {
-                yield new self($method);
-            }
+            $docBlockReturnTypes = $method->getDocBlockReturnTypes();
         } catch (\InvalidArgumentException $e) {
             // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
+        }
+
+        if (null === $method->getReturnType() && empty($docBlockReturnTypes)) {
+            yield new self($method);
         }
     }
 
