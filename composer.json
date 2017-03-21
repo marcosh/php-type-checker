@@ -10,18 +10,12 @@
         }
     ],
     "require": {
-        "roave/better-reflection": "dev-types-with-no-doc-block",
+        "roave/better-reflection": "dev-master",
         "symfony/console": "^3.2"
     },
     "autoload": {
         "psr-4": {
             "Marcosh\\PhpReturnTypeChecker\\": "src/"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:marcosh/BetterReflection.git"
-        }
-    ]
+    }
 }
