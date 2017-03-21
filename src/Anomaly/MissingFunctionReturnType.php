@@ -13,7 +13,7 @@ final class MissingFunctionReturnType
      */
     private $function;
 
-    public function __construct(ReflectionFunction $function)
+    private function __construct(ReflectionFunction $function)
     {
         $this->function = $function;
     }

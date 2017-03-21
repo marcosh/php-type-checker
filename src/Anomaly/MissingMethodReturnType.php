@@ -14,7 +14,7 @@ final class MissingMethodReturnType implements Anomaly
      */
     private $method;
 
-    public function __construct(ReflectionMethod $method)
+    private function __construct(ReflectionMethod $method)
     {
         $this->method = $method;
     }
