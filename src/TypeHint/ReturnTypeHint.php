@@ -5,7 +5,9 @@ declare(strict_types = 1);
 namespace Marcosh\PhpReturnTypeChecker\TypeHint;
 
 use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionReturnType;
+use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionReturnTypeWithDocBlock;
 use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodReturnType;
+use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodReturnTypeWithDocBlock;
 use Marcosh\PhpReturnTypeChecker\Anomaly\MissingReturnTypeWithDocBlock;
 use Marcosh\PhpReturnTypeChecker\Anomaly\ReturnTypeDoesNotCoincideWithDocBlock;
 use phpDocumentor\Reflection\Type;
@@ -31,14 +33,14 @@ final class ReturnTypeHint
         }
 
         yield from MissingMethodReturnType::method($method);
-        //yield from MissingReturnTypeWithDocBlock::callable($method);
+        yield from MissingMethodReturnTypeWithDocBlock::method($method);
         //yield from ReturnTypeDoesNotCoincideWithDocBlock::callable($method);
     }
 
     public static function function(ReflectionFunction $function): \Iterator
     {
         yield from MissingFunctionReturnType::function($function);
-        //yield from MissingReturnTypeWithDocBlock::callable($function);
+        yield from MissingFunctionReturnTypeWithDocBlock::function($function);
         //yield from ReturnTypeDoesNotCoincideWithDocBlock::callable($function);
     }
 
