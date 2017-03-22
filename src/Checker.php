@@ -28,7 +28,7 @@ final class Checker
 
             foreach ($methods as $method) {
                 yield from ReturnTypeHint::method($method);
-                //yield from InputTypeHint::method($method);
+                yield from InputTypeHint::method($method);
             }
         }
 
@@ -36,7 +36,7 @@ final class Checker
 
         foreach ($functionReflector->getAllFunctions() as $function) {
             yield from ReturnTypeHint::function($function);
-            //yield from InputTypeHint::function($function);
+            yield from InputTypeHint::function($function);
         }
     }
 }
