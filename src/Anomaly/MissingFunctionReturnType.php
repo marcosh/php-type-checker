@@ -6,7 +6,7 @@ namespace Marcosh\PhpReturnTypeChecker\Anomaly;
 
 use Roave\BetterReflection\Reflection\ReflectionFunction;
 
-final class MissingFunctionReturnType
+final class MissingFunctionReturnType implements Anomaly
 {
     /**
      * @var ReflectionFunction

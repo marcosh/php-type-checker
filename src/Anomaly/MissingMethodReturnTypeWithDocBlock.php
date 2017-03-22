@@ -6,7 +6,7 @@ namespace Marcosh\PhpReturnTypeChecker\Anomaly;
 
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 
-final class MissingMethodReturnTypeWithDocBlock
+final class MissingMethodReturnTypeWithDocBlock implements Anomaly
 {
     /**
      * @var ReflectionMethod
