@@ -15,7 +15,7 @@ final class Checker
 {
     /**
      * @param string $path to be checked
-     * @return ReflectionMethod[]
+     * @return \Iterator
      */
     public function __invoke(string $path): \Iterator
     {
