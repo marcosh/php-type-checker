@@ -45,7 +45,7 @@ final class MissingFunctionReturnTypeWithDocBlock implements Anomaly
             $this->function->getName(),
             $this->function->getDeclaringClass()->getName(),
             $this->function->getFileName(),
-            $docBlockReturnTypes
+            implode($docBlockReturnTypes)
         );
     }
 }

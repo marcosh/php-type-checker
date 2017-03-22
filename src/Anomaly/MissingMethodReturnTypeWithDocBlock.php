@@ -45,7 +45,7 @@ final class MissingMethodReturnTypeWithDocBlock implements Anomaly
             $this->method->getName(),
             $this->method->getDeclaringClass()->getName(),
             $this->method->getFileName(),
-            $docBlockReturnTypes
+            implode($docBlockReturnTypes)
         );
     }
 }
