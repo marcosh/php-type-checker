@@ -4,7 +4,6 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpReturnTypeChecker\Anomaly;
 
-use Roave\BetterReflection\Reflection\ReflectionFunctionAbstract;
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 
 final class MissingMethodReturnType implements Anomaly
