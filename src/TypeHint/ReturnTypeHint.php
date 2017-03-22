@@ -21,9 +21,9 @@ final class ReturnTypeHint
             return;
         }
 
-        //yield from MissingMethodReturnType::method($method);
+        yield from MissingMethodReturnType::method($method);
         yield from MissingMethodReturnTypeWithDocBlock::method($method);
-        //yield from MethodReturnTypeDoesNotCoincideWithDocBlock::method($method);
+        yield from MethodReturnTypeDoesNotCoincideWithDocBlock::method($method);
     }
 
     public static function function(ReflectionFunction $function): \Iterator
