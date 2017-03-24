@@ -6,7 +6,7 @@ namespace Marcosh\PhpReturnTypeChecker\Anomaly;
 
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
-final class MissingFunctionInputParamType implements Anomaly
+final class MissingMethodParamType
 {
     /**
      * @var ReflectionParameter
@@ -34,10 +34,11 @@ final class MissingFunctionInputParamType implements Anomaly
     public function message(): string
     {
         return sprintf(
-            'Parameter <info>%s</info> of function <info>%s</info> defined in <comment>%s</comment> ' .
-            'does not have a type hint.',
+            'Parameter <info>%s</info> of method <info>%s</info> of the class <info>%s</info> ' .
+            'defined in <comment>%s</comment> does not have a type hint.',
             $this->parameter->getName(),
             $this->parameter->getDeclaringFunction()->getName(),
+            $this->parameter->getDeclaringFunction()->getDeclaringClass()->getName(),
             $this->parameter->getDeclaringFunction()->getFileName()
         );
     }
