@@ -43,7 +43,6 @@ final class MissingFunctionReturnTypeWithDocBlock implements Anomaly
             'Function <info>%s</info> defined in <comment>%s</comment> ' .
             'does not have a return type but has a doc block return type of <info>%s.</info>',
             $this->function->getName(),
-            $this->function->getDeclaringClass()->getName(),
             $this->function->getFileName(),
             implode($docBlockReturnTypes)
         );
