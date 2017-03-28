@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\TypeHint;
+namespace Marcosh\PhpTypeChecker\TypeHint;
 
-use Marcosh\PhpReturnTypeChecker\Anomaly\FunctionParamTypeDoesNotCoincideWithDocBlock;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionParamType;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionParamTypeWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\FunctionParamTypeDoesNotCoincideWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MissingFunctionParamType;
+use Marcosh\PhpTypeChecker\Anomaly\MissingFunctionParamTypeWithDocBlock;
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class FunctionParamTypeHint

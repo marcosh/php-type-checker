@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\Anomaly;
+namespace Marcosh\PhpTypeChecker\Anomaly;
 
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 use Roave\BetterReflection\Reflection\ReflectionType;

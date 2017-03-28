@@ -2,10 +2,10 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker;
+namespace Marcosh\PhpTypeChecker;
 
-use Marcosh\PhpReturnTypeChecker\TypeHint\InputTypeHint;
-use Marcosh\PhpReturnTypeChecker\TypeHint\ReturnTypeHint;
+use Marcosh\PhpTypeChecker\TypeHint\InputTypeHint;
+use Marcosh\PhpTypeChecker\TypeHint\ReturnTypeHint;
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 use Roave\BetterReflection\Reflector\ClassReflector;
 use Roave\BetterReflection\Reflector\FunctionReflector;

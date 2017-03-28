@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\Command;
+namespace Marcosh\PhpTypeChecker\Command;
 
-use Marcosh\PhpReturnTypeChecker\Checker;
+use Marcosh\PhpTypeChecker\Checker;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

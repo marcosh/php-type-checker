@@ -2,11 +2,11 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\TypeHint;
+namespace Marcosh\PhpTypeChecker\TypeHint;
 
-use Marcosh\PhpReturnTypeChecker\Anomaly\MethodParamTypeDoesNotCoincideWithDocBlock;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodParamType;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodParamTypeWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MethodParamTypeDoesNotCoincideWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MissingMethodParamType;
+use Marcosh\PhpTypeChecker\Anomaly\MissingMethodParamTypeWithDocBlock;
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class MethodParamTypeHint

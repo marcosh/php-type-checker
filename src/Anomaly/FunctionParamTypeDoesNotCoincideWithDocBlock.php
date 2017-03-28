@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Marcosh\PhpReturnTypeChecker\Anomaly;
+namespace Marcosh\PhpTypeChecker\Anomaly;
 
 use phpDocumentor\Reflection\Type;
 use Roave\BetterReflection\Reflection\ReflectionParameter;

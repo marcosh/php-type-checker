@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-use Marcosh\PhpReturnTypeChecker\Command\CheckTypes;
+use Marcosh\PhpTypeChecker\Command\CheckTypes;
 use Symfony\Component\Console\Application;
 
 chdir(dirname(__DIR__));

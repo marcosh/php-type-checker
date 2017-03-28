@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\TypeHint;
+namespace Marcosh\PhpTypeChecker\TypeHint;
 
 use Roave\BetterReflection\Reflection\ReflectionFunction;
 use Roave\BetterReflection\Reflection\ReflectionMethod;

@@ -2,14 +2,14 @@
 
 declare(strict_types = 1);
 
-namespace Marcosh\PhpReturnTypeChecker\TypeHint;
+namespace Marcosh\PhpTypeChecker\TypeHint;
 
-use Marcosh\PhpReturnTypeChecker\Anomaly\FunctionReturnTypeDoesNotCoincideWithDocBlock;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MethodReturnTypeDoesNotCoincideWithDocBlock;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionReturnType;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingFunctionReturnTypeWithDocBlock;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodReturnType;
-use Marcosh\PhpReturnTypeChecker\Anomaly\MissingMethodReturnTypeWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\FunctionReturnTypeDoesNotCoincideWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MethodReturnTypeDoesNotCoincideWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MissingFunctionReturnType;
+use Marcosh\PhpTypeChecker\Anomaly\MissingFunctionReturnTypeWithDocBlock;
+use Marcosh\PhpTypeChecker\Anomaly\MissingMethodReturnType;
+use Marcosh\PhpTypeChecker\Anomaly\MissingMethodReturnTypeWithDocBlock;
 use Roave\BetterReflection\Reflection\ReflectionFunction;
 use Roave\BetterReflection\Reflection\ReflectionMethod;
 

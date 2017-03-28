@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Marcosh\\PhpReturnTypeChecker\\": "src/"
+            "Marcosh\\PhpTypeChecker\\": "src/"
         }
     },
     "require-dev": {
