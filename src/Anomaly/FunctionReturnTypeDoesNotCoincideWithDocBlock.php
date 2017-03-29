@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpTypeChecker\Anomaly;
 
-use ReflectionType;
 use Roave\BetterReflection\Reflection\ReflectionFunction;
+use Roave\BetterReflection\Reflection\ReflectionType;
 
 final class FunctionReturnTypeDoesNotCoincideWithDocBlock implements Anomaly
 {
