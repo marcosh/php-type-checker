@@ -41,7 +41,7 @@ final class MissingFunctionReturnTypeWithDocBlock implements Anomaly
 
         return sprintf(
             'Function <info>%s</info> defined in <comment>%s</comment> ' .
-            'does not have a return type but has a doc block return type of <info>%s.</info>',
+            'does not have a return type but has a doc block return type of <info>%s</info>.',
             $this->function->getName(),
             $this->function->getFileName(),
             implode($docBlockReturnTypes)

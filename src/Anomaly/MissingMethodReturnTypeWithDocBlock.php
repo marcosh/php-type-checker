@@ -41,7 +41,7 @@ final class MissingMethodReturnTypeWithDocBlock implements Anomaly
 
         return sprintf(
             'Method <info>%s</info> of the class <info>%s</info> defined in <comment>%s</comment> ' .
-            'does not have a return type but has a doc block return type of <info>%s.</info>',
+            'does not have a return type but has a doc block return type of <info>%s</info>.',
             $this->method->getName(),
             $this->method->getDeclaringClass()->getName(),
             $this->method->getFileName(),

@@ -41,7 +41,7 @@ final class MissingFunctionParamTypeWithDocBlock
 
         return sprintf(
             'Parameter <info>%s</info> of function <info>%s</info> defined in <comment>%s</comment> ' .
-            'does not have a type hint but has a boc block type of <info>%s</info>',
+            'does not have a type hint but has a boc block type of <info>%s</info>.',
             $this->parameter->getName(),
             $this->parameter->getDeclaringFunction()->getName(),
             $this->parameter->getDeclaringFunction()->getFileName(),
