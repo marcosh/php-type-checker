@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpTypeChecker\Anomaly;
 
+use Marcosh\PhpTypeChecker\Check\FunctionAbstract;
 use Roave\BetterReflection\Reflection\ReflectionFunction;
 
 final class MissingFunctionReturnTypeWithDocBlock implements Anomaly
@@ -20,13 +21,7 @@ final class MissingFunctionReturnTypeWithDocBlock implements Anomaly
 
     public static function function(ReflectionFunction $function): \Iterator
     {
-        try {
-            $docBlockReturnTypes = $function->getDocBlockReturnTypes();
-        } catch (\InvalidArgumentException $e) {
-            // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
-        }
-
-        if (null === $function->getReturnType() && !empty($docBlockReturnTypes)) {
+        if ((new FunctionAbstract($function))->missingReturnTypeWithDocBlock()) {
             yield new self($function);
         }
     }

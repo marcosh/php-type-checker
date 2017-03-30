@@ -42,6 +42,12 @@ final class FunctionAbstract
             empty($this->returnDocBlockTypes());
     }
 
+    public function missingReturnTypeWithDocBlock(): bool
+    {
+        return null === $this->function->getReturnType() &&
+            !empty($this->returnDocBlockTypes());
+    }
+
     public function returnTypeDoesNotCoincideWithDocBlock(): bool
     {
         $docBlockReturnTypes = $this->returnDocBlockTypes();
