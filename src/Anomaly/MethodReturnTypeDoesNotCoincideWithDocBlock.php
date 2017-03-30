@@ -4,8 +4,8 @@ declare(strict_types = 1);
 
 namespace Marcosh\PhpTypeChecker\Anomaly;
 
+use Marcosh\PhpTypeChecker\Check\FunctionAbstract;
 use Roave\BetterReflection\Reflection\ReflectionMethod;
-use Roave\BetterReflection\Reflection\ReflectionType;
 
 final class MethodReturnTypeDoesNotCoincideWithDocBlock implements Anomaly
 {
@@ -21,17 +21,7 @@ final class MethodReturnTypeDoesNotCoincideWithDocBlock implements Anomaly
 
     public static function method(ReflectionMethod $method): \Iterator
     {
-        try {
-            $docBlockReturnTypes = $method->getDocBlockReturnTypes();
-        } catch (\InvalidArgumentException $e) {
-            // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
-        }
-
-        if (
-            !empty($docBlockReturnTypes) &&
-            $method->getReturnType() instanceof ReflectionType &&
-            !in_array($method->getReturnType()->getTypeObject(), $docBlockReturnTypes, false)
-        ) {
+        if ((new FunctionAbstract($method))->returnTypeDoesNotCoincideWithDocBlock()) {
             yield new self($method);
         }
     }
