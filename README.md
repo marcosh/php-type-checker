@@ -1,5 +1,8 @@
 # Php return type checker
 
+[![Build Status](https://travis-ci.org/marcosh/php-type-checker.svg?branch=master)](https://travis-ci.org/marcosh/php-type-checker)
+[![Code Climate](https://codeclimate.com/github/marcosh/php-type-checker/badges/gpa.svg)](https://codeclimate.com/github/marcosh/php-type-checker)
+
 Checks which methods are missing a return type hint
 
 ## Install
