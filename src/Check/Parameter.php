@@ -19,13 +19,28 @@ final class Parameter
         $this->parameter = $parameter;
     }
 
-    public function typeDoesNotCoincideWithDocBlock(): bool
+    private function docBlockTypes(): array
     {
+        $docBlockTypes = [];
+
         try {
             $docBlockTypes = $this->parameter->getDocBlockTypes();
         } catch (\InvalidArgumentException $e) {
             // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
         }
+
+        return $docBlockTypes;
+    }
+
+    public function typeIsMissing(): bool
+    {
+        return null === $this->parameter->getTypeHint() &&
+            empty($this->docBlockTypes());
+    }
+
+    public function typeDoesNotCoincideWithDocBlock(): bool
+    {
+        $docBlockTypes = $this->docBlockTypes();
 
         return !empty($docBlockTypes) &&
             $this->parameter->getTypeHint() instanceof Type &&
