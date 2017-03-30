@@ -19,6 +19,9 @@ final class Parameter
         $this->parameter = $parameter;
     }
 
+    /**
+     * @return Type[]
+     */
     private function docBlockTypes(): array
     {
         $docBlockTypes = [];
