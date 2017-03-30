@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Marcosh\PhpTypeChecker\Anomaly;
 
-use phpDocumentor\Reflection\Type;
+use Marcosh\PhpTypeChecker\Check\Parameter;
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class MethodParamTypeDoesNotCoincideWithDocBlock
@@ -21,17 +21,7 @@ final class MethodParamTypeDoesNotCoincideWithDocBlock
 
     public static function param(ReflectionParameter $parameter): \Iterator
     {
-        try {
-            $docBlockTypes = $parameter->getDocBlockTypes();
-        } catch (\InvalidArgumentException $e) {
-            // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
-        }
-
-        if (
-            !empty($docBlockTypes) &&
-            $parameter->getTypeHint() instanceof Type &&
-            !in_array($parameter->getTypeHint(), $docBlockTypes, false)
-        ) {
+        if ((new Parameter($parameter))->typeDoesNotCoincideWithDocBlock()) {
             yield new self($parameter);
         }
     }
