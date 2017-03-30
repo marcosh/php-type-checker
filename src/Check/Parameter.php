@@ -38,6 +38,12 @@ final class Parameter
             empty($this->docBlockTypes());
     }
 
+    public function typeIsMissingWithDocBlock(): bool
+    {
+        return null === $this->parameter->getTypeHint() &&
+            !empty($this->docBlockTypes());
+    }
+
     public function typeDoesNotCoincideWithDocBlock(): bool
     {
         $docBlockTypes = $this->docBlockTypes();

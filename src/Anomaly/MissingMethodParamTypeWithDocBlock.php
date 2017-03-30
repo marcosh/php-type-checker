@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Marcosh\PhpTypeChecker\Anomaly;
 
+use Marcosh\PhpTypeChecker\Check\Parameter;
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class MissingMethodParamTypeWithDocBlock implements Anomaly
@@ -20,13 +21,7 @@ final class MissingMethodParamTypeWithDocBlock implements Anomaly
 
     public static function param(ReflectionParameter $parameter)
     {
-        try {
-            $docBlockTypes = $parameter->getDocBlockTypes();
-        } catch (\InvalidArgumentException $e) {
-            // we need this here to prevent reflection-bocblock errors on @see invalid Fqsen
-        }
-
-        if (null === $parameter->getTypeHint() && !empty($docBlockTypes)) {
+        if ((new Parameter($parameter))->typeIsMissingWithDocBlock()) {
             yield new self($parameter);
         }
     }
