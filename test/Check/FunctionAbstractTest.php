@@ -25,10 +25,10 @@ final class FunctionAbstractTest extends TestCase
      * @dataProvider returnTypeDataProvider
      */
     public function testReturnType(
-        $function,
-        $missingReturnType,
-        $missingReturnTypeWithDocBlock,
-        $returnTypeDoesNotCoincideWithDocBlock
+        callable $function,
+        bool $missingReturnType,
+        bool $missingReturnTypeWithDocBlock,
+        bool $returnTypeDoesNotCoincideWithDocBlock
     ) {
         $reflection = ReflectionFunction::createFromClosure($function);
 
