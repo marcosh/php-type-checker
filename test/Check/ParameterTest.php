@@ -17,7 +17,8 @@ final class ParameterTest extends TestCase
             [ReflectionParameter::createFromClosure(function (int $x) {}, 'x'), false, false, false],
             [ReflectionParameter::createFromClosure(/** @param int $x */function (int $x) {}, 'x'), false, false, false],
             [ReflectionParameter::createFromClosure(/** @param int $x */function ($x) {}, 'x'), false, true, false],
-            [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true]
+            [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true],
+            [ReflectionParameter::createFromClosure(/** @param mixed $x */function ($x) {}, 'x'), false, false, false]
         ];
     }
 

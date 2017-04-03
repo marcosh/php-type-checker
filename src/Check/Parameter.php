@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Marcosh\PhpTypeChecker\Check;
 
 use phpDocumentor\Reflection\Type;
+use phpDocumentor\Reflection\Types\Mixed;
 use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class Parameter
@@ -44,7 +45,8 @@ final class Parameter
     public function typeIsMissingWithDocBlock(): bool
     {
         return null === $this->parameter->getTypeHint() &&
-            !empty($this->docBlockTypes());
+            !empty($this->docBlockTypes()) &&
+            !$this->docBlockTypes()[0] instanceof Mixed;
     }
 
     public function typeDoesNotCoincideWithDocBlock(): bool
