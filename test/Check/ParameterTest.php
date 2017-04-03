@@ -10,17 +10,15 @@ use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class ParameterTest extends TestCase
 {
-    public function parameterDataProvider()
+    public function parameterDataProvider(): \Iterator
     {
-        return [
-            [ReflectionParameter::createFromClosure(function ($x) {}, 'x'), true, false, false],
-            [ReflectionParameter::createFromClosure(function (int $x) {}, 'x'), false, false, false],
-            [ReflectionParameter::createFromClosure(/** @param int $x */function (int $x) {}, 'x'), false, false, false],
-            [ReflectionParameter::createFromClosure(/** @param int $x */function ($x) {}, 'x'), false, true, false],
-            [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true],
-            [ReflectionParameter::createFromClosure(/** @param mixed $x */function ($x) {}, 'x'), false, false, false],
-            [ReflectionParameter::createFromClosure(/** @param int[] $x */function (array $x) {}, 'x'), false, false, false]
-        ];
+        yield [ReflectionParameter::createFromClosure(function ($x) {}, 'x'), true, false, false];
+        yield [ReflectionParameter::createFromClosure(function (int $x) {}, 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClosure(/** @param int $x */function (int $x) {}, 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClosure(/** @param int $x */function ($x) {}, 'x'), false, true, false];
+        yield [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true];
+        yield [ReflectionParameter::createFromClosure(/** @param mixed $x */function ($x) {}, 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClosure(/** @param int[] $x */function (array $x) {}, 'x'), false, false, false];
     }
 
     /**
