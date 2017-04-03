@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Marcosh\PhpTypeChecker\Check;
 
 use phpDocumentor\Reflection\Type;
+use phpDocumentor\Reflection\Types\Mixed;
 use Roave\BetterReflection\Reflection\ReflectionFunctionAbstract;
 use Roave\BetterReflection\Reflection\ReflectionType;
 
@@ -45,7 +46,8 @@ final class FunctionAbstract
     public function missingReturnTypeWithDocBlock(): bool
     {
         return null === $this->function->getReturnType() &&
-            !empty($this->returnDocBlockTypes());
+            !empty($this->returnDocBlockTypes()) &&
+            !$this->returnDocBlockTypes()[0] instanceof Mixed;
     }
 
     public function returnTypeDoesNotCoincideWithDocBlock(): bool
