@@ -18,7 +18,8 @@ final class FunctionAbstractTest extends TestCase
             [/** @return int */function (): int {}, false, false, false],
             [/** @return int */function () {}, false, true, false],
             [/** @return int */function ():string {}, false, false, true],
-            [/** @return mixed */function () {}, false, false, false]
+            [/** @return mixed */function () {}, false, false, false],
+            [/** @return int[] */function (): array {}, false, false, false]
         ];
     }
 

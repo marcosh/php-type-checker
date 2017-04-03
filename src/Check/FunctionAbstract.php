@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Marcosh\PhpTypeChecker\Check;
 
 use phpDocumentor\Reflection\Type;
+use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Mixed;
 use Roave\BetterReflection\Reflection\ReflectionFunctionAbstract;
 use Roave\BetterReflection\Reflection\ReflectionType;
@@ -56,6 +57,7 @@ final class FunctionAbstract
 
         return !empty($docBlockReturnTypes) &&
             $this->function->getReturnType() instanceof ReflectionType &&
-            !in_array($this->function->getReturnType()->getTypeObject(), $docBlockReturnTypes, false);
+            !in_array($this->function->getReturnType()->getTypeObject(), $docBlockReturnTypes, false) &&
+            !($this->function->getReturnType()->getTypeObject() instanceof Array_ && $docBlockReturnTypes[0] instanceof Array_);
     }
 }
