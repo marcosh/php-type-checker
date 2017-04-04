@@ -10,6 +10,16 @@ use Roave\BetterReflection\Reflection\ReflectionParameter;
 
 final class ParameterTest extends TestCase
 {
+    /**
+     * @param ParameterTest $x
+     */
+    private function self(self $x) {}
+
+    /**
+     * @param self $x
+     */
+    private function parameterTest(ParameterTest $x) {}
+
     public function parameterDataProvider(): \Iterator
     {
         yield [ReflectionParameter::createFromClosure(function ($x) {}, 'x'), true, false, false];
@@ -19,6 +29,8 @@ final class ParameterTest extends TestCase
         yield [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true];
         yield [ReflectionParameter::createFromClosure(/** @param mixed $x */function ($x) {}, 'x'), false, false, false];
         yield [ReflectionParameter::createFromClosure(/** @param int[] $x */function (array $x) {}, 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClassInstanceAndMethod($this, 'self', 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClassInstanceAndMethod($this, 'parameterTest', 'x'), false, false, false];
     }
 
     /**
