@@ -1,6 +1,6 @@
 {
-    "name": "marcosh/php-return-type-checker",
-    "description": "Cheks which methods are missing a return type hint",
+    "name": "marcosh/php-type-checker",
+    "description": "Checks if type hints are present and coherent with doc block declarations",
     "type": "library",
     "license": "MIT",
     "authors": [
