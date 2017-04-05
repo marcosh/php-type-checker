@@ -10,21 +10,10 @@ Checks if type hints are present and coherent with doc block declarations
 
 ## Install
 
-Install using [Composer](https://getcomposer.org).
-
-Add 
+Install using [Composer](https://getcomposer.org) with
 
 ```
-{
-    "url": "git@github.com:marcosh/php-return-type-checker.git",
-    "type": "git"
-}
-```
-
-among the repositories of your `composer.json` and then use
-
-```
-composer require marcosh/php-return-type-checker
+composer require marcosh/php-type-checker
 ```
 
 ## Usage
