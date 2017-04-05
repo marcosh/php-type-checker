@@ -7,7 +7,10 @@ namespace Marcosh\PhpTypeChecker\Check;
 use phpDocumentor\Reflection\Type;
 use phpDocumentor\Reflection\Types\Array_;
 use phpDocumentor\Reflection\Types\Mixed;
+use phpDocumentor\Reflection\Types\Object_;
+use phpDocumentor\Reflection\Types\Self_;
 use Roave\BetterReflection\Reflection\ReflectionFunctionAbstract;
+use Roave\BetterReflection\Reflection\ReflectionMethod;
 use Roave\BetterReflection\Reflection\ReflectionType;
 
 final class FunctionAbstract
@@ -58,6 +61,18 @@ final class FunctionAbstract
         return !empty($docBlockReturnTypes) &&
             $this->function->getReturnType() instanceof ReflectionType &&
             !in_array($this->function->getReturnType()->getTypeObject(), $docBlockReturnTypes, false) &&
-            !($this->function->getReturnType()->getTypeObject() instanceof Array_ && $docBlockReturnTypes[0] instanceof Array_);
+            !($this->function->getReturnType()->getTypeObject() instanceof Array_ &&
+                $docBlockReturnTypes[0] instanceof Array_
+            ) &&
+            !($this->function->getReturnType()->getTypeObject() instanceof Self_ &&
+                $docBlockReturnTypes[0] instanceof Object_ &&
+                $this->function instanceof  ReflectionMethod &&
+                $this->function->getDeclaringClass()->getName() === ltrim((string) $docBlockReturnTypes[0]->getFqsen(), '\\')
+            ) &&
+            !($this->function->getReturnType()->getTypeObject() instanceof Object_ &&
+                $docBlockReturnTypes[0] instanceof Self_ &&
+                $this->function instanceof ReflectionMethod &&
+                $this->function->getDeclaringClass()->getName() === ltrim((string) $this->function->getReturnType()->getTypeObject()->getFqsen(), '\\')
+            );
     }
 }
