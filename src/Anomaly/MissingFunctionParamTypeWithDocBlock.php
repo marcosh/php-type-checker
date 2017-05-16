@@ -19,7 +19,7 @@ final class MissingFunctionParamTypeWithDocBlock
         $this->parameter = $parameter;
     }
 
-    public static function param(ReflectionParameter $parameter)
+    public static function param(ReflectionParameter $parameter): \Generator
     {
         if ((new Parameter($parameter))->typeIsMissingWithDocBlock()) {
             yield new self($parameter);

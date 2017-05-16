@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class CheckTypes extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('check');
         $this->setDescription('Check methods return types');
@@ -23,7 +23,7 @@ final class CheckTypes extends Command
         );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): void
     {
         $path = $input->getArgument('path');
 
