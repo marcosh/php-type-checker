@@ -49,7 +49,8 @@ final class Parameter
     {
         return null === $this->parameter->getTypeHint() &&
             !empty($this->docBlockTypes()) &&
-            !$this->docBlockTypes()[0] instanceof Mixed;
+            !$this->docBlockTypes()[0] instanceof Mixed &&
+            !$this->docBlockTypes()[0] instanceof Object_;
     }
 
     public function typeDoesNotCoincideWithDocBlock(): bool

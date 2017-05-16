@@ -28,6 +28,7 @@ final class ParameterTest extends TestCase
         yield [ReflectionParameter::createFromClosure(/** @param int $x */function ($x) {}, 'x'), false, true, false];
         yield [ReflectionParameter::createFromClosure(/** @param int $x */function (string $x) {}, 'x'), false, false, true];
         yield [ReflectionParameter::createFromClosure(/** @param mixed $x */function ($x) {}, 'x'), false, false, false];
+        yield [ReflectionParameter::createFromClosure(/** @param object $x */function ($x) {}, 'x'), false, false, false];
         yield [ReflectionParameter::createFromClosure(/** @param int[] $x */function (array $x) {}, 'x'), false, false, false];
         yield [ReflectionParameter::createFromClassInstanceAndMethod($this, 'self', 'x'), false, false, false];
         yield [ReflectionParameter::createFromClassInstanceAndMethod($this, 'parameterTest', 'x'), false, false, false];
