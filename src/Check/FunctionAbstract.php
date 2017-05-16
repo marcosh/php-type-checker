@@ -51,7 +51,8 @@ final class FunctionAbstract
     {
         return null === $this->function->getReturnType() &&
             !empty($this->returnDocBlockTypes()) &&
-            !$this->returnDocBlockTypes()[0] instanceof Mixed;
+            !$this->returnDocBlockTypes()[0] instanceof Mixed &&
+            !$this->returnDocBlockTypes()[0] instanceof Object_;
     }
 
     public function returnTypeDoesNotCoincideWithDocBlock(): bool

@@ -30,6 +30,7 @@ final class FunctionAbstractTest extends TestCase
         yield [ReflectionFunction::createFromClosure(/** @return int */function () {}), false, true, false];
         yield [ReflectionFunction::createFromClosure(/** @return int */function ():string {}), false, false, true];
         yield [ReflectionFunction::createFromClosure(/** @return mixed */function () {}), false, false, false];
+        yield [ReflectionFunction::createFromClosure(/** @return object */function () {}), false, false, false];
         yield [ReflectionFunction::createFromClosure(/** @return int[] */function (): array {}), false, false, false];
         yield [ReflectionMethod::createFromInstance($this, 'self'), false, false, false];
         yield [ReflectionMethod::createFromInstance($this, 'functionAbstractTest'), false, false, false];
